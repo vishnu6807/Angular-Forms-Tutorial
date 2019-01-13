@@ -28,4 +28,42 @@ registrationForm: FormGroup;
   
   4) provide formControlName for each and every field
   <input type="text" formControlName="userName" class="form-control">
+  
+  
+  19)Nested forms https://www.youtube.com/watch?v=B0a3IIQckBw&index=19&list=PLC3y8-rFHvwhwL-XH04cHOpJnkgRKykFi
+  
+  for the complex form in order to make it simple we can nest for into each other.
+  i.e in user form we can make separate  group for address group for fields like 
+   address: new FormGroup({
+  //     city: new FormControl(''),
+  //     state: new FormControl(''),
+//     postalCode: new FormControl('')
+
+
+20)Seting form data from component or from service from backend
+we can set form data for update functionlity 
+
+we can use setvalue or patchvalue method on formgroup 
+for setvalue method we have to set value to the each and every formcontrol
+for patchValue method we can to set value for few fields in  formcontrol
+
+
+loadAPIData() {
+    // this.registrationForm.setValue({
+    //   userName: 'Bruce',
+    //   password: 'test',
+    //   confirmPassword: 'test',
+    //   address: {
+    //     city: 'City',
+    //     state: 'State',
+    //     postalCode: '123456'
+    //   }
+    // });
+
+    this.registrationForm.patchValue({
+      userName: 'Bruce',
+      password: 'test',
+      confirmPassword: 'test'
+    });
+}
 
