@@ -67,3 +67,34 @@ loadAPIData() {
     });
 }
 
+22)Validations in Angular 2 
+
+there are inbulid validations provided by angular.
+import Validators 
+import { Validators } from '@angular/forms';
+
+apply the validators validations to form-field to the second filed in the field-contol array.
+first field is for default name.if single vadidation there will be no need of array at second field.
+
+userName: ['', [Validators.required, Validators.minLength(3)]]
+
+use getter to get a reference to field to use it in HTML
+
+ get userName() {
+    return this.registrationForm.get('userName');
+}
+
+<input type="text" [class.is-invalid]="userName.invalid && userName.touched" formControlName="userName" class="form-control">
+      <!-- <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">Username is required</small> -->
+      <div *ngIf="userName.invalid && userName.touched">
+        <small class="text-danger" *ngIf="userName.errors?.required">Username is required</small>
+        <small class="text-danger" *ngIf="userName.errors?.minlength">Username must be at least 3 characters</small>
+        
+</div>
+where ? is safe navigation operator
+
+
+
+
+
+
