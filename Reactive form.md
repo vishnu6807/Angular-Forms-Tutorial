@@ -93,6 +93,23 @@ use getter to get a reference to field to use it in HTML
 </div>
 where ? is safe navigation operator
 
+23)custom validations
+
+like particular username is not allowed like admin
+better to create in seperate ts file coz it will be resuable in many forms
+
+
+
+import { ValidatorFn, AbstractControl } from '@angular/forms';
+
+export function ForbiddenNameValidator(forbiddenName: RegExp): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    const forbidden = forbiddenName.test(control.value);
+    return forbidden ? { 'forbiddenName': { value: control.value } } : null;
+  };
+}
+
+
 
 
 
